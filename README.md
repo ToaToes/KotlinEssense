@@ -13,5 +13,4 @@ Link: freeCodeCamp -- Kotlin
 8. Coroutines
 
 git
-
 Link: https://www.jetbrains.com/help/idea/set-up-a-git-repository.html#clone-repo
