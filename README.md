@@ -11,3 +11,7 @@ Link: freeCodeCamp -- Kotlin
 6. Generics
 7. Lambda Functions
 8. Coroutines
+
+git
+
+Link: https://www.jetbrains.com/help/idea/set-up-a-git-repository.html#clone-repo
