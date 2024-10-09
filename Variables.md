@@ -4,6 +4,10 @@ var test: Int = 1 // can be reassigned
 val test: Int = 2 // cannot be reassigned
 ```
 Variables need to be declare type first
+
+**Clear Contracts: **
+When designing APIs, specifying types (including nullable types) allows API users to understand what to expect from methods and classes. This clarity helps prevent misuse and makes integration easier.
+
 ```
 var test: String
 test  = "123"
@@ -151,4 +155,60 @@ public class DayOfWeek {
         System.out.println("Day " + day + " is a " + dayType); // Output: Day 3 is a Weekday
     }
 }
+```
+
+_____
+## Nullable
+
+**Prevention of NullPointerExceptions: **
+Kotlin's type system distinguishes between nullable and non-nullable types, which helps prevent the infamous NullPointerException (NPE) at runtime. By default, all types are non-nullable, so you have to explicitly declare a type as nullable (e.g., String?).
+
+**Early Error Detection: **
+Because nullability is part of the type system, potential null-related issues are caught at compile time rather than at runtime. This leads to safer code and reduces the need for extensive null checks.
+
+**Clear Code Intent: **
+The use of nullable types makes the developer's intent clear. When you see a variable declared as nullable, it indicates that it may not hold a value, prompting developers to handle these cases explicitly.
+
+**Convenient Syntax: **
+Kotlin provides safe call operators (?.) and the Elvis operator (?:) to handle nullable types elegantly. This allows for concise and readable code when dealing with potential null values.
+
+```
+val length = nullableName?.length ?: 0  // Returns 0 if nullableName is null
+```
+
+Example: 
+```
+val text: String? = "Name"
+println(text.length)
+//This will not be allowed even its not 'Null' and type it 'val'
+//Only safe (?.) or non-null asserted (!!) calls are allowed on a nullable receiver of type String?
+
+//OR ->
+
+//Have to do a nullable check first
+val text: String? = "Name"
+if (text != null){
+  println(text.length)
+} else{
+// ***
+}
+
+//OR -> Add Safe call operator: '?.'
+
+val text: String? = "Name"
+println(text?.length)
+//This works
+
+//OR -> Use '!!'
+
+val text: String? = null
+println(text!!.length)
+// To throw an exception if its NULL, or give answer
+
+//OR -> Use '?:' to set something for variable if its null
+
+var text: String? = "Name"
+text = null
+println(text ?: "Something here")
+
 ```
