@@ -19,3 +19,8 @@ suspend fun fetchData(): String {
     return "Data fetched"
 }
 ```
+
+## ```suspend()``` -> 暂停 后继续
+
+This makes it easier to work with tasks that take time to complete, such as network calls or database queries, without blocking the main thread.
+
