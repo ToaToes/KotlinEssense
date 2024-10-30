@@ -1,3 +1,15 @@
+## What is OOP:
+
+1. Encapsulation: Bundling the data (attributes) and methods (functions) that operate on the data into a single unit, or class. Access to the data is controlled through methods.
+
+2. Inheritance: Mechanism where a new class can inherit the properties and methods of an existing class. This promotes code reuse.
+
+3. Polymorphism: Ability of different classes to be treated as instances of the same class through a common interface. It allows methods to do different things based on the object they are acting upon.
+
+4. Abstraction: Hiding the complex reality while exposing only the necessary parts. It allows a programmer to focus on interactions at a higher level.
+
+
+
 ## Companion Object
 
 a companion object is a singleton object that is tied to a class rather than an instance of the class. It allows you to define members (properties and methods) that can be accessed without creating an instance of the class. Companion objects can be used to implement factory methods or to hold constants.
