@@ -1,6 +1,6 @@
 ## What is OOP:
 
-1. Encapsulation: Bundling the data (attributes) and methods (functions) that operate on the data into a single unit, or class. Access to the data is controlled through methods.
+1. Encapsulation (private) : Bundling the data (attributes) and methods (functions) that operate on the data into a single unit, or class. Access to the data is controlled through methods.
 ```
 class BankAccount(private var balance: Double) { // private viriable of this class
 
@@ -31,7 +31,7 @@ fun main() {
 ```
 Private variables of a class cannot be accessed directly from outside the class. Has to use its public function to do set get modification on this variable
 
-2. Inheritance: Mechanism where a new class can inherit the properties and methods of an existing class. This promotes code reuse.
+2. Inheritance (Reuse repeated code) : Mechanism where a new class can inherit the properties and methods of an existing class. This promotes code reuse.
 ```
 // Base class
 open class Animal(val name: String) { // open -> abstract in Java
@@ -65,9 +65,14 @@ fun main() {
 ```
 One can extend the base class to override its fucntion -> for code reusability
 
-3. Polymorphism: Ability of different classes to be treated as instances of the same class through a common interface. It allows methods to do different things based on the object they are acting upon.
+3. Polymorphism (override overload) : Ability of different classes to be treated as instances of the same class through a common interface. It allows methods to do different things based on the object they are acting upon.
 
-4. Abstraction: Hiding the complex reality while exposing only the necessary parts. It allows a programmer to focus on interactions at a higher level.
+Override(Runtime polymorphism): Same parameters but used in different subclasses
+
+Overload(Compiletime polymorphism): Same function name but different parameters
+
+
+5. Abstraction: Hiding the complex reality while exposing only the necessary parts. It allows a programmer to focus on interactions at a higher level.
 
 
 
