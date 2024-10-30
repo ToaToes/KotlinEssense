@@ -6,6 +6,8 @@ Can Have Both Abstract and Concrete Methods: An abstract class can contain both 
 
 Open: -> Optional override, not strict
 
+Difference between normal class -> If not marked as open, it means they cannot be inherited or overridden in Kotlin. By default, classes and their methods in Kotlin are ```final```, which prevents subclassing and method overriding.
+
 ## interface()
 
 ## variables
