@@ -72,7 +72,9 @@ Override(Runtime polymorphism): Same parameters but used in different subclasses
 Overload(Compiletime polymorphism): Same function name but different parameters
 
 
-5. Abstraction: Hiding the complex reality while exposing only the necessary parts. It allows a programmer to focus on interactions at a higher level.
+4. Abstraction (high level) : Hiding the complex reality while exposing only the necessary parts. It allows a programmer to focus on interactions at a higher level.
+
+Abstract/Interface class: different from open() class, to implement abstract class, one class has to override all fucntion inside abstract class, without needing to understand the underlying complexity.
 
 
 
