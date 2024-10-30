@@ -1,8 +1,69 @@
 ## What is OOP:
 
 1. Encapsulation: Bundling the data (attributes) and methods (functions) that operate on the data into a single unit, or class. Access to the data is controlled through methods.
+```
+class BankAccount(private var balance: Double) { // private viriable of this class
+
+    fun deposit(amount: Double) {
+        if (amount > 0) {
+            balance += amount
+        }
+    }
+
+    fun withdraw(amount: Double) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount
+        }
+    }
+
+    fun getBalance(): Double {
+        return balance
+    }
+}
+
+fun main() {
+    val account = BankAccount(1000.0)
+    account.deposit(500.0)
+    account.withdraw(200.0)
+    println("Current Balance: $${account.getBalance()}")
+}
+
+```
+Private variables of a class cannot be accessed directly from outside the class. Has to use its public function to do set get modification on this variable
 
 2. Inheritance: Mechanism where a new class can inherit the properties and methods of an existing class. This promotes code reuse.
+```
+// Base class
+open class Animal(val name: String) { // open -> abstract in Java
+    open fun makeSound() {
+        println("$name makes a sound")
+    }
+}
+
+// Derived class
+class Dog(name: String) : Animal(name) {
+    override fun makeSound() {
+        println("$name barks")
+    }
+}
+
+// Another derived class
+class Cat(name: String) : Animal(name) {
+    override fun makeSound() {
+        println("$name meows")
+    }
+}
+
+fun main() {
+    val dog = Dog("Buddy")
+    val cat = Cat("Whiskers")
+
+    dog.makeSound() // Outputs: Buddy barks
+    cat.makeSound() // Outputs: Whiskers meows
+}
+
+```
+One can extend the base class to override its fucntion -> for code reusability
 
 3. Polymorphism: Ability of different classes to be treated as instances of the same class through a common interface. It allows methods to do different things based on the object they are acting upon.
 
