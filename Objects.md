@@ -136,3 +136,91 @@ object DataCache {
 ```
 6. Testing
 In unit tests, you can use singletons to create mock or stub implementations of services that can be reused across different tests.
+
+
+## difference between ```companion object``` declare and ```object``` declare
+
+**```companion object```** declare
+Class-Related Functionality: Companion objects are ideal for static-like behavior that is specific to a class, especially when you need to create instances of that class or manage data relevant to it.
+
+1. Definition: A companion object is defined within a class and is **associated** with that class.
+2. Purpose: It is primarily used to hold static members (methods and properties) that can be accessed without creating an instance of the class.
+3. Access: Members of a companion object can be accessed using the class name directly. You can also implement interfaces in companion objects.
+4. Instantiation: There can only be one companion object per class.
+
+```
+class MyClass {
+    companion object {
+        const val CONSTANT = "I am a constant"
+
+        fun create(): MyClass {
+            return MyClass()
+        }
+    }
+}
+
+// Usage
+val instance = MyClass.create() // Using companion object method
+println(MyClass.CONSTANT) // Accessing companion object constant
+
+```
+**Companion Object Example**
+Imagine you have a class representing a user, and you want to provide a factory method to create a user from a JSON string:
+```
+class User(val name: String) {
+    companion object {
+        fun fromJson(json: String): User {
+            // Logic to parse JSON and create a User instance
+            return User("ParsedName") // Simplified for example
+        }
+    }
+}
+
+// Usage
+val user = User.fromJson("{\"name\":\"John\"}")
+
+```
+
+
+
+**```object```** declare -> _having only one instance applies to the object itself, cant create mulitple instances of it_
+Standalone Functionality: Object declarations are great for features that **don't need to be tied to specific data instances**. They are useful for utility functions or global state management where you want a single instance handling certain operations.
+
+1. Definition: An object declaration creates a singleton instance that is not tied to any class. It stands alone as a separate entity.
+2. Purpose: It is used for creating a single instance of an object, often for managing shared state, utilities, or for defining singletons.
+3. Access: You access the members of an object declaration using the object name directly.
+4. Instantiation: There can only be one instance of an object declared with the object keyword.
+
+```
+object MySingleton {
+    var count: Int = 0
+}
+
+fun main() {
+    // Accessing the singleton instance
+    MySingleton.count++
+    println(MySingleton.count) // Output: 1
+
+    // Attempting to create another instance (this will not compile)
+    // object MySingleton { } // Uncommenting this line will cause a compile error
+
+    // Accessing the same instance again
+    MySingleton.count++
+    println(MySingleton.count) // Output: 2
+}
+
+```
+
+**Object Declaration Example**
+On the other hand, if you need a singleton for logging throughout your application:
+```
+object Logger {
+    fun log(message: String) {
+        println("Log: $message")
+    }
+}
+
+// Usage
+Logger.log("This is a log message.")
+
+```
